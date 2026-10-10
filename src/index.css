@@ -1,0 +1,1154 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Sreda';
+  font-style: normal;
+  font-weight: 400 700;
+  src: local('Sreda'),
+       url('/fonts/Sreda.woff') format('woff'),
+       url('https://fonts.cdnfonts.com/s/57731/Sreda.woff') format('woff');
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --font-display: 'Syne', sans-serif;
+    --font-orbitron: 'Orbitron', sans-serif;
+    --font-oswald: 'Oswald', sans-serif;
+    --font-sreda: 'Sreda', serif;
+    --font-revalia: 'Revalia', sans-serif;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-orbitron {
+  font-family: var(--font-orbitron);
+}
+
+.font-oswald {
+  font-family: var(--font-oswald);
+}
+
+.font-sreda {
+  font-family: var(--font-sreda), 'Sreda', serif;
+}
+
+.font-revalia {
+  font-family: var(--font-revalia), 'Revalia', cursive, sans-serif;
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Custom glow utility */
+.glow-red {
+  box-shadow: 0 0 35px -5px rgba(220, 38, 38, 0.25);
+}
+
+.glow-red-lg {
+  box-shadow: 0 0 65px -10px rgba(220, 38, 38, 0.35);
+}
+
+/* Subtle dark scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #08080a;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 9999px;
+}
+/* Subtle organic floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 2.4s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  will-change: transform;
+}
+
+/* Horizontal infinite single-line marquee ticker */
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+.animate-hero-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 46s linear infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  animation-play-state: running;
+}
+
+.animate-hero-marquee:hover,
+.animate-marquee:hover {
+  animation-play-state: running;
+}
+
+/* =========================================================================
+   Hero Scrolling Skills Ticker - Cybernetic Color Wave & Laser Styles
+   ========================================================================= */
+
+@keyframes ticker-color-wave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-ticker-color-wave {
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #ff4d6d 22%,
+    #ffffff 45%,
+    #FF1F48 70%,
+    #e4e4e7 90%,
+    #ffffff 100%
+  );
+  background-size: 240% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: ticker-color-wave 7s ease-in-out infinite;
+  will-change: background-position;
+}
+
+@keyframes laser-edge-pulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scaleX(0.9);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scaleX(1);
+    filter: drop-shadow(0 0 8px #FF1F48);
+  }
+}
+
+.animate-laser-edge-pulse {
+  animation: laser-edge-pulse 1.6s ease-in-out infinite;
+  will-change: opacity, transform, filter;
+}
+
+/* =========================================================================
+   Hero CTA Buttons Color Scrolling Animations & Boundaries
+   Button 1: Red to Black scrolling animation (vice-versa)
+   Button 2: Black to Red scrolling animation (vice-versa)
+   ========================================================================= */
+
+@keyframes btn-scroll-red-to-black {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes btn-scroll-black-to-red {
+  0% {
+    background-position: 200% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes btn-sheen-sweep-forward {
+  0% {
+    transform: translateX(-160%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(260%) skewX(-20deg);
+  }
+}
+
+@keyframes btn-sheen-sweep-reverse {
+  0% {
+    transform: translateX(260%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(-160%) skewX(-20deg);
+  }
+}
+
+.btn-scroll-red-to-black {
+  background: linear-gradient(115deg, #FF1A44 0%, #D80027 18%, #070104 50%, #D80027 82%, #FF1A44 100%);
+  background-size: 200% 100%;
+  animation: btn-scroll-red-to-black 4s linear infinite;
+  border: 1.5px solid rgba(255, 31, 72, 0.7);
+  box-shadow: 0 0 20px rgba(255, 31, 72, 0.4), inset 0 0 10px rgba(255, 31, 72, 0.15);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: background-position, transform, box-shadow;
+}
+
+.btn-scroll-red-to-black:hover {
+  animation-duration: 2.2s;
+  border-color: rgba(255, 31, 72, 1);
+  box-shadow: 0 0 35px rgba(255, 31, 72, 0.8), 0 0 55px rgba(255, 31, 72, 0.4);
+}
+
+.btn-scroll-black-to-red {
+  background: linear-gradient(115deg, #070104 0%, #15050B 18%, #FF1A44 50%, #15050B 82%, #070104 100%);
+  background-size: 200% 100%;
+  animation: btn-scroll-black-to-red 4s linear infinite;
+  border: 1.5px solid rgba(255, 31, 72, 0.7);
+  box-shadow: 0 0 20px rgba(255, 31, 72, 0.35), inset 0 0 10px rgba(255, 31, 72, 0.15);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: background-position, transform, box-shadow;
+}
+
+.btn-scroll-black-to-red:hover {
+  animation-duration: 2.2s;
+  border-color: rgba(255, 31, 72, 1);
+  box-shadow: 0 0 35px rgba(255, 31, 72, 0.75), 0 0 55px rgba(255, 31, 72, 0.35);
+}
+
+.animate-btn-sheen {
+  animation: btn-sheen-sweep-forward 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: transform;
+}
+
+.animate-btn-sheen-reverse {
+  animation: btn-sheen-sweep-reverse 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: transform;
+}
+
+/* =========================================================================
+   Hero Headline Text Animations
+   - Specular light sweep on white text ("AI/ML Engineer")
+   - Neon crimson chromatic wave & bloom pulse on ("UI/UX Designer")
+   - Eyebrow pulsing beam and cyber glowing keywords
+   ========================================================================= */
+
+@keyframes headline-specular-sweep {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-headline-white-shimmer {
+  background: linear-gradient(
+    115deg,
+    #ffffff 0%,
+    #ffffff 22%,
+    #ffd6df 38%,
+    #ffffff 48%,
+    #ffa3b5 58%,
+    #ffffff 72%,
+    #ffffff 100%
+  );
+  background-size: 240% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: headline-specular-sweep 9s ease-in-out infinite;
+  will-change: background-position;
+}
+
+@keyframes headline-crimson-wave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-headline-crimson {
+  background: linear-gradient(
+    115deg,
+    #FF1F48 0%,
+    #FF476B 25%,
+    #ffffff 48%,
+    #FF476B 65%,
+    #FF1F48 100%
+  );
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: headline-crimson-wave 8s ease-in-out infinite;
+  will-change: background-position;
+  filter: none !important;
+  text-shadow: none !important;
+}
+
+@keyframes eyebrow-glow-flicker {
+  0%, 100% {
+    opacity: 0.95;
+    text-shadow: 0 0 10px rgba(255, 31, 72, 0.5);
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 18px rgba(255, 31, 72, 0.95), 0 0 30px rgba(255, 31, 72, 0.55);
+  }
+}
+
+.animate-eyebrow-red {
+  animation: eyebrow-glow-flicker 2.8s ease-in-out infinite;
+  will-change: opacity, text-shadow;
+}
+
+@keyframes laser-scan-underline {
+  0% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
+
+.animate-laser-scan-underline {
+  animation: laser-scan-underline 1.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  will-change: transform, opacity;
+}
+
+.group\/eyebrow:hover .animate-laser-scan-underline {
+  animation-duration: 0.8s;
+}
+
+/* =========================================================================
+   Hero Vertical Indicator Animations ("AI UI/UX / INNOVATION")
+   - Vertical text cybernetic shimmer wave
+   - Laser beam energy pulse dropping down vertical line
+   - Smooth continuous mouse scroll wheel stroke
+   - Synchronized downward chevron guidance glide
+   ========================================================================= */
+
+@keyframes vertical-text-shimmer {
+  0% {
+    background-position: 0% -120%;
+  }
+  100% {
+    background-position: 0% 180%;
+  }
+}
+
+.animate-vertical-text-shimmer {
+  background: linear-gradient(
+    180deg,
+    rgba(161, 161, 170, 0.5) 0%,
+    rgba(228, 228, 231, 0.75) 25%,
+    #ffffff 50%,
+    #FF1F48 70%,
+    rgba(161, 161, 170, 0.5) 100%
+  );
+  background-size: 100% 280%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: vertical-text-shimmer 2.4s ease-in-out infinite;
+  will-change: background-position;
+}
+
+@keyframes laser-beam-drop {
+  0% {
+    transform: translateY(-120%);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(120%);
+    opacity: 0;
+  }
+}
+
+.animate-laser-beam-drop {
+  animation: laser-beam-drop 1.1s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes laser-line-pulse {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(255, 31, 72, 0.65), 0 0 16px rgba(255, 31, 72, 0.3);
+    opacity: 0.85;
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(255, 31, 72, 1), 0 0 28px rgba(255, 31, 72, 0.6);
+    opacity: 1;
+  }
+}
+
+.animate-laser-line-pulse {
+  animation: laser-line-pulse 1.4s ease-in-out infinite;
+  will-change: box-shadow, opacity;
+}
+
+@keyframes mouse-wheel-stroke {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  48% {
+    transform: translateY(10px);
+    opacity: 0.95;
+  }
+  75% {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+  76% {
+    transform: translateY(-4px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-mouse-wheel-stroke {
+  animation: mouse-wheel-stroke 1.1s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes chevron-glide {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.45;
+    filter: drop-shadow(0 0 2px rgba(255, 31, 72, 0.4));
+  }
+  50% {
+    transform: translateY(5px);
+    opacity: 1;
+    filter: drop-shadow(0 0 10px #FF1F48);
+  }
+}
+
+.animate-chevron-glide {
+  animation: chevron-glide 1.1s ease-in-out infinite;
+  will-change: transform, opacity, filter;
+}
+
+@keyframes vertical-float-gentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+.animate-vertical-float-gentle {
+  animation: vertical-float-gentle 2.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Hyper-speed acceleration on hover */
+.group:hover .animate-laser-beam-drop,
+.group:hover .animate-mouse-wheel-stroke,
+.group:hover .animate-chevron-glide {
+  animation-duration: 0.7s;
+}
+
+.group:hover .animate-vertical-text-shimmer {
+  animation-duration: 1.4s;
+}
+
+
+/* Shining red border animation */
+@keyframes spin-border {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-border {
+  animation: spin-border 6s linear infinite;
+  will-change: transform;
+}
+
+.animate-spin-spark {
+  animation: spin-border 4s linear infinite;
+  will-change: transform;
+}
+
+@keyframes border-glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(255, 31, 72, 0.4), 0 0 60px rgba(255, 31, 72, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 45px rgba(255, 31, 72, 0.65), 0 0 90px rgba(255, 31, 72, 0.35);
+  }
+}
+
+.shining-red-card {
+  animation: border-glow-pulse 4s ease-in-out infinite;
+}
+
+/* Shimmer sweep animation for buttons */
+@keyframes shimmer-sweep {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  25%, 100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer-sweep 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Navbar ambient breathing glow */
+@keyframes nav-glow-breathe {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(255, 31, 72, 0.16), 0 10px 40px -10px rgba(0, 0, 0, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 31, 72, 0.32), 0 15px 50px -10px rgba(255, 31, 72, 0.12);
+  }
+}
+
+.nav-glow-breathe {
+  animation: nav-glow-breathe 4s ease-in-out infinite;
+}
+
+/* Subtle breathing ambient glow */
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.08);
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 6s ease-in-out infinite;
+}
+
+/* Navbar slide down entrance */
+@keyframes nav-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-nav-enter {
+  animation: nav-slide-down 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Navbar red line sparks moving in opposite directions */
+@keyframes spark-left-to-right {
+  0% {
+    left: -80px;
+    opacity: 0;
+  }
+  4% {
+    opacity: 1;
+  }
+  96% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes spark-right-to-left {
+  0% {
+    left: 100%;
+    opacity: 0;
+  }
+  4% {
+    opacity: 1;
+  }
+  96% {
+    opacity: 1;
+  }
+  100% {
+    left: -80px;
+    opacity: 0;
+  }
+}
+
+.animate-spark-right {
+  animation: spark-left-to-right 4s linear infinite;
+  will-change: left, opacity;
+}
+
+.animate-spark-left {
+  animation: spark-right-to-left 4s linear infinite;
+  will-change: left, opacity;
+}
+
+/* Alternating color flow animations: Red -> Black -> Red and Black -> Red -> Black */
+@keyframes flow-red-black-red {
+  0%, 100% {
+    background-position: 100% 50%;
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.45), 0 10px 25px -5px rgba(185, 28, 28, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    background-position: 0% 50%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6), 0 10px 25px -5px rgba(0, 0, 0, 0.8);
+    border-color: rgba(255, 255, 255, 0.32);
+  }
+}
+
+@keyframes flow-black-red-black {
+  0%, 100% {
+    background-position: 0% 50%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6), 0 10px 25px -5px rgba(0, 0, 0, 0.8);
+    border-color: rgba(255, 255, 255, 0.32);
+  }
+  50% {
+    background-position: 100% 50%;
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.45), 0 10px 25px -5px rgba(185, 28, 28, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.btn-flow-red-black {
+  background: linear-gradient(
+    115deg,
+    #050508 0%,
+    #0b0406 18%,
+    #1c0408 30%,
+    #600911 48%,
+    #991b1b 62%,
+    #dc2626 76%,
+    #ef4444 90%,
+    #ff264b 100%
+  );
+  background-size: 250% 250%;
+  animation: flow-red-black-red 4.5s ease-in-out infinite;
+  will-change: background-position, box-shadow, border-color;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.btn-flow-black-red {
+  background: linear-gradient(
+    115deg,
+    #050508 0%,
+    #0b0406 18%,
+    #1c0408 30%,
+    #600911 48%,
+    #991b1b 62%,
+    #dc2626 76%,
+    #ef4444 90%,
+    #ff264b 100%
+  );
+  background-size: 250% 250%;
+  animation: flow-black-red-black 4.5s ease-in-out infinite;
+  will-change: background-position, box-shadow, border-color;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.btn-flow-red-black:hover,
+.btn-flow-black-red:hover {
+  border-color: rgba(255, 255, 255, 0.85) !important;
+  box-shadow: 0 0 35px rgba(255, 45, 80, 0.75), 0 0 75px rgba(255, 45, 80, 0.4), 0 10px 30px -5px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* =========================================================================
+   Synchronized 4-Card Alternating Floating & Ambient Red Glow Animation
+   Group A: Card 1 + Card 3
+   Group B: Card 2 + Card 4
+   Full cycle: 2.6s (boosted from 5s), smooth ease-in-out cubic-bezier, 60fps GPU accelerated
+   ========================================================================= */
+
+:root {
+  --card-float-duration: 2.6s;
+}
+
+@keyframes float-group-a {
+  0%, 100% {
+    transform: translateY(8px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes float-group-b {
+  0%, 100% {
+    transform: translateY(-8px);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+/* Ambient Red Glow Backdrop behind & around cards */
+.card-ambient-aura {
+  position: absolute;
+  inset: -14px;
+  border-radius: 28px;
+  background: radial-gradient(
+    ellipse 85% 75% at 50% 45%,
+    rgba(255, 31, 72, 0.45) 0%,
+    rgba(220, 38, 38, 0.22) 42%,
+    rgba(185, 28, 28, 0.08) 65%,
+    transparent 82%
+  );
+  filter: blur(24px);
+  pointer-events: none;
+  z-index: -1;
+  will-change: opacity, transform;
+}
+
+@keyframes glow-group-a {
+  0%, 100% {
+    opacity: 0.14;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.88;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes glow-group-b {
+  0%, 100% {
+    opacity: 0.88;
+    transform: scale(1.03);
+  }
+  50% {
+    opacity: 0.14;
+    transform: scale(0.95);
+  }
+}
+
+/* Dynamic Box Shadow & Border Glow on the Card Surface */
+@keyframes surface-glow-a {
+  0%, 100% {
+    box-shadow: 0 0 14px rgba(255, 31, 72, 0.16), 0 8px 20px rgba(0, 0, 0, 0.55);
+    border-color: rgba(255, 31, 72, 0.55);
+  }
+  50% {
+    box-shadow: 0 0 32px 3px rgba(255, 31, 72, 0.45), 0 0 65px 10px rgba(255, 31, 72, 0.22), 0 18px 36px -6px rgba(0, 0, 0, 0.8);
+    border-color: rgba(255, 45, 80, 0.95);
+  }
+}
+
+@keyframes surface-glow-b {
+  0%, 100% {
+    box-shadow: 0 0 32px 3px rgba(255, 31, 72, 0.45), 0 0 65px 10px rgba(255, 31, 72, 0.22), 0 18px 36px -6px rgba(0, 0, 0, 0.8);
+    border-color: rgba(255, 45, 80, 0.95);
+  }
+  50% {
+    box-shadow: 0 0 14px rgba(255, 31, 72, 0.16), 0 8px 20px rgba(0, 0, 0, 0.55);
+    border-color: rgba(255, 31, 72, 0.55);
+  }
+}
+
+.card-float-group-a {
+  animation: float-group-a var(--card-float-duration) cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  will-change: transform;
+}
+
+.card-float-group-b {
+  animation: float-group-b var(--card-float-duration) cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  will-change: transform;
+}
+
+.card-ambient-glow-a {
+  animation: glow-group-a var(--card-float-duration) cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.card-ambient-glow-b {
+  animation: glow-group-b var(--card-float-duration) cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.card-surface-glow-a {
+  animation: surface-glow-a var(--card-float-duration) cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.card-surface-glow-b {
+  animation: surface-glow-b var(--card-float-duration) cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+/* Smooth pause on hover for interactive clarity */
+.card-float-group-a:hover,
+.card-float-group-b:hover {
+  animation-play-state: paused;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .card-float-group-a,
+  .card-float-group-b {
+    animation: none !important;
+    transform: none !important;
+  }
+  .card-ambient-glow-a,
+  .card-ambient-glow-b {
+    animation: none !important;
+    opacity: 0.3 !important;
+  }
+  .card-surface-glow-a,
+  .card-surface-glow-b {
+    animation: none !important;
+  }
+}
+
+/* =========================================================================
+   Skills Orbital Planetary Rotation System
+   Orbits revolve smoothly around the central nucleus (450, 450).
+   Child badges counter-rotate in real-time so all text & icons remain upright.
+   Pauses on hover for comfortable readability.
+   ========================================================================= */
+
+@keyframes orbit-rot-cw {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-rot-ccw {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Inner Ring: Clockwise (38s) */
+.orbit-track-inner {
+  transform-box: view-box;
+  transform-origin: 450px 450px;
+  animation: orbit-rot-cw 38s linear infinite;
+  will-change: transform;
+}
+
+.orbit-counter-inner {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: orbit-rot-ccw 38s linear infinite;
+  will-change: transform;
+}
+
+/* Middle Ring: Counter-Clockwise (52s) */
+.orbit-track-middle {
+  transform-box: view-box;
+  transform-origin: 450px 450px;
+  animation: orbit-rot-ccw 52s linear infinite;
+  will-change: transform;
+}
+
+.orbit-counter-middle {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: orbit-rot-cw 52s linear infinite;
+  will-change: transform;
+}
+
+/* Outer Ring: Clockwise (68s) */
+.orbit-track-outer {
+  transform-box: view-box;
+  transform-origin: 450px 450px;
+  animation: orbit-rot-cw 68s linear infinite;
+  will-change: transform;
+}
+
+.orbit-counter-outer {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: orbit-rot-ccw 68s linear infinite;
+  will-change: transform;
+}
+
+
+
+.skill-badge-node {
+  cursor: pointer;
+  transition: filter 0.25s ease, opacity 0.25s ease;
+}
+
+.skill-badge-node:hover {
+  filter: drop-shadow(0 0 14px #FF1F48) drop-shadow(0 0 28px rgba(255, 31, 72, 0.8)) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit-track-inner,
+  .orbit-track-middle,
+  .orbit-track-outer,
+  .orbit-counter-inner,
+  .orbit-counter-middle,
+  .orbit-counter-outer {
+    animation: none !important;
+  }
+}
+
+/* =========================================================================
+   Services Slow Scrolling Marquees
+   Row 1: Right to Left (rtl)
+   Row 2: Left to Right (ltr)
+   ========================================================================= */
+
+@keyframes services-scroll-rtl {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes services-scroll-ltr {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-scroll-rtl {
+  display: flex;
+  width: max-content;
+  animation: services-scroll-rtl 42s linear infinite;
+  will-change: transform;
+}
+
+.animate-scroll-ltr {
+  display: flex;
+  width: max-content;
+  animation: services-scroll-ltr 42s linear infinite;
+  will-change: transform;
+}
+
+.animate-scroll-rtl:hover,
+.animate-scroll-ltr:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-scroll-rtl,
+  .animate-scroll-ltr {
+    animation: none !important;
+  }
+}
+
+/* =========================================================================
+   Cinematic Hero Background Red Waves & Atmospheric Animations
+   ========================================================================= */
+
+@keyframes heroAmbientPulse {
+  0%, 100% {
+    opacity: 0.82;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes heroAmbientShift {
+  0%, 100% {
+    opacity: 0.78;
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    opacity: 0.98;
+    transform: translate(-18px, -12px) scale(1.08);
+  }
+}
+
+@keyframes heroAmbientPulseSlow {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes heroTrailEnergyPulse {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -1030;
+  }
+}
+
+@keyframes heroTrailEnergyPulseFast {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -820;
+  }
+}
+
+@keyframes heroTrailFlowSlow {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -700;
+  }
+}
+
+@keyframes heroTrailFlowReverse {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 680;
+  }
+}
+
+@keyframes loopGlowPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px rgba(255, 31, 72, 0.8))
+            drop-shadow(0 0 25px rgba(255, 31, 72, 0.5))
+            drop-shadow(0 0 50px rgba(255, 31, 72, 0.3));
+    opacity: 0.94;
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(255, 45, 90, 0.95))
+            drop-shadow(0 0 35px rgba(255, 31, 72, 0.7))
+            drop-shadow(0 0 75px rgba(255, 31, 72, 0.45));
+    opacity: 1;
+  }
+}
+
+.hero-ambient-pulse {
+  animation: heroAmbientPulse 9s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.hero-ambient-shift {
+  animation: heroAmbientShift 13s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.hero-ambient-pulse-slow {
+  animation: heroAmbientPulseSlow 11s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.hero-trail-energy-pulse {
+  animation: heroTrailEnergyPulse 12s linear infinite;
+}
+
+.hero-trail-energy-pulse-fast {
+  animation: heroTrailEnergyPulseFast 8.5s linear infinite;
+}
+
+.hero-trail-flow-slow {
+  animation: heroTrailFlowSlow 16s linear infinite;
+}
+
+.hero-trail-flow-reverse {
+  animation: heroTrailFlowReverse 17s linear infinite;
+}
+
+.animate-loop-pulse {
+  animation: loopGlowPulse 6s ease-in-out infinite;
+  will-change: filter, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-ambient-pulse,
+  .hero-ambient-shift,
+  .hero-ambient-pulse-slow,
+  .hero-trail-energy-pulse,
+  .hero-trail-energy-pulse-fast,
+  .hero-trail-flow-slow,
+  .hero-trail-flow-reverse,
+  .animate-loop-pulse,
+  .animate-hero-portrait-levitate {
+    animation: none !important;
+  }
+}
+
+/* =========================================================================
+   Hero Portrait Smooth Organic Levitation Animation
+   ========================================================================= */
+@keyframes heroPortraitLevitate {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-11px) rotate(0.4deg);
+  }
+}
+
+.animate-hero-portrait-levitate {
+  animation: heroPortraitLevitate 5.8s ease-in-out infinite;
+  will-change: transform;
+}
