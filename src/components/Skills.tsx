@@ -16,13 +16,13 @@ export const Skills: React.FC = () => {
       {/* Background ambient lighting matching the neon diagram */}
       <div className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[680px] h-[680px] bg-red-600/10 rounded-full blur-[150px] pointer-events-none -z-10" />
 
-      <div className="max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col items-center justify-center">
+      <div className="max-w-[1360px] mx-auto px-3 sm:px-8 lg:px-12 flex flex-col items-center justify-center w-full overflow-hidden">
 
         {/* Neon AI Skills Ecosystem Diagram */}
-        <div className="w-full max-w-[650px] md:max-w-[690px] lg:max-w-[720px] aspect-square relative select-none -mt-4 sm:-mt-8 lg:-mt-10">
+        <div className="w-full max-w-[340px] xs:max-w-[400px] sm:max-w-[540px] md:max-w-[690px] lg:max-w-[720px] aspect-square relative select-none -mt-4 sm:-mt-8 lg:-mt-10 mx-auto">
           <svg
             viewBox={`0 0 ${size} ${size}`}
-            className="w-full h-full skills-ecosystem-svg"
+            className="w-full h-full skills-ecosystem-svg max-w-full"
             style={{ filter: 'drop-shadow(0 0 25px rgba(255, 31, 72, 0.15))' }}
           >
             <defs>

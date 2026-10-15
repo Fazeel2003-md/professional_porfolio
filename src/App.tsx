@@ -20,7 +20,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#08080A] text-[#E5E7EB] selection:bg-red-600/30 selection:text-white relative overflow-x-hidden font-sans">
       {/* Subtle global ambient glow points */}
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-red-600/[0.04] rounded-full blur-[180px] pointer-events-none -z-10" />
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] max-w-[100vw] h-[400px] bg-red-600/[0.04] rounded-full blur-[180px] pointer-events-none -z-10" />
 
       {/* Primary Navigation */}
       <Navbar onOpenConnect={() => setConnectModalOpen(true)} />

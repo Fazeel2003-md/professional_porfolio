@@ -109,7 +109,7 @@ export const Services: React.FC<ServicesProps> = ({ onOpenConnect }) => {
       <div
         key={key}
         onClick={onOpenConnect}
-        className="group relative rounded-2xl p-5 sm:p-6 bg-gradient-to-b from-[#200404] via-[#100202] to-[#070101] border-2 border-red-600/90 hover:border-red-500 shadow-[0_0_28px_rgba(220,20,20,0.32),inset_0_0_20px_rgba(200,15,15,0.15)] hover:shadow-[0_0_42px_rgba(220,20,20,0.55),inset_0_0_28px_rgba(200,15,15,0.25)] backdrop-blur-xl transition-all duration-300 flex flex-col justify-between cursor-pointer hover:-translate-y-1.5 h-[290px] sm:h-[310px] w-[320px] sm:w-[370px] lg:w-[400px] shrink-0 select-none overflow-hidden"
+        className="group relative rounded-2xl p-4 sm:p-6 bg-gradient-to-b from-[#200404] via-[#100202] to-[#070101] border-2 border-red-600/90 hover:border-red-500 shadow-[0_0_28px_rgba(220,20,20,0.32),inset_0_0_20px_rgba(200,15,15,0.15)] hover:shadow-[0_0_42px_rgba(220,20,20,0.55),inset_0_0_28px_rgba(200,15,15,0.25)] backdrop-blur-xl transition-all duration-300 flex flex-col justify-between cursor-pointer hover:-translate-y-1.5 h-[285px] sm:h-[310px] w-[275px] xs:w-[310px] sm:w-[370px] lg:w-[400px] shrink-0 select-none overflow-hidden"
       >
         {/* Top red specular highlight border rim */}
         <div className="absolute top-0 inset-x-0 h-[2.5px] bg-gradient-to-r from-transparent via-red-500 via-red-600 to-transparent pointer-events-none z-10" />

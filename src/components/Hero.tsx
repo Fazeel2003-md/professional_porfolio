@@ -63,12 +63,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConnect }) => {
           <div className="lg:col-span-7 flex flex-col items-start space-y-6 sm:space-y-7">
             
             {/* Top Eyebrow Label matching reference image with live beacon & animated red accents */}
-            <div className="relative group/eyebrow inline-flex items-center gap-2.5 pb-1">
-              <span className="relative flex h-2 w-2">
+            <div className="relative group/eyebrow inline-flex items-center gap-2 pb-1 max-w-full flex-wrap">
+              <span className="relative flex h-2 w-2 shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF1F48] opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FF1F48] shadow-[0_0_8px_#FF1F48]"></span>
               </span>
-              <span className="font-revalia text-xs sm:text-[13px] md:text-sm tracking-wide uppercase text-white select-none">
+              <span className="font-revalia text-[10.5px] xs:text-xs sm:text-[13px] md:text-sm tracking-wide uppercase text-white select-none leading-snug">
                 DESIGN AND DEVELOP{' '}
                 <span className="text-[#FF1F48] animate-eyebrow-red font-semibold">
                   AI SOLUTIONS
@@ -86,12 +86,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConnect }) => {
 
             {/* Main Headline - Orbitron Modern Typography with Specular Shimmer & Neon Pulse */}
             <div className="space-y-1 sm:space-y-1.5 group/headline cursor-default select-none">
-              <h1 className="font-orbitron font-extrabold text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] 2xl:text-[4.5rem] tracking-tight leading-[1.08]">
+              <h1 className="font-orbitron font-extrabold text-[27px] xs:text-3xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] 2xl:text-[4.5rem] tracking-tight leading-[1.1]">
                 <span className="animate-headline-white-shimmer inline-block hover:drop-shadow-[0_0_30px_rgba(255,255,255,0.7)] transition-all duration-300">
                   AI/ML Engineer
                 </span>
               </h1>
-              <h2 className="font-orbitron font-extrabold text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] 2xl:text-[4.5rem] tracking-tight leading-[1.08] sm:whitespace-nowrap">
+              <h2 className="font-orbitron font-extrabold text-[27px] xs:text-3xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] 2xl:text-[4.5rem] tracking-tight leading-[1.1] sm:whitespace-nowrap">
                 <span className="text-white">&amp; </span>
                 <span className="animate-headline-crimson inline-block hover:scale-[1.01] transition-transform duration-300">
                   UI/UX Designer
@@ -107,16 +107,16 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConnect }) => {
             </div>
 
             {/* Description / Subtitle */}
-            <p className="text-sm sm:text-base text-zinc-400 font-light leading-relaxed max-w-lg">
+            <p className="text-xs sm:text-base text-zinc-400 font-light leading-relaxed max-w-lg">
               I build intelligent GenAI systems, robust FastAPI backends, and sleek visual interfaces.
             </p>
 
             {/* Primary Action Buttons with Red-to-Black and Black-to-Red Scrolling Animations */}
-            <div className="pt-2 flex flex-wrap items-center gap-4">
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
               {/* Button 1: Red to Black scrolling animation */}
               <a
                 href="#projects"
-                className="group relative inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl btn-scroll-red-to-black text-white font-semibold text-sm tracking-wide hover:-translate-y-0.5 active:translate-y-0 cursor-pointer overflow-hidden"
+                className="group relative inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl btn-scroll-red-to-black text-white font-semibold text-xs sm:text-sm tracking-wide hover:-translate-y-0.5 active:translate-y-0 cursor-pointer overflow-hidden text-center min-h-[44px]"
               >
                 {/* Luminous light sweep sheen */}
                 <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-xl">
@@ -130,7 +130,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConnect }) => {
               <button
                 type="button"
                 onClick={onOpenConnect}
-                className="group relative inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl btn-scroll-black-to-red text-zinc-100 hover:text-white font-medium text-sm tracking-wide backdrop-blur-md hover:-translate-y-0.5 active:translate-y-0 cursor-pointer overflow-hidden"
+                className="group relative inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl btn-scroll-black-to-red text-zinc-100 hover:text-white font-medium text-xs sm:text-sm tracking-wide backdrop-blur-md hover:-translate-y-0.5 active:translate-y-0 cursor-pointer overflow-hidden text-center min-h-[44px]"
               >
                 {/* Luminous light sweep sheen (vice-versa reverse direction) */}
                 <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-xl">

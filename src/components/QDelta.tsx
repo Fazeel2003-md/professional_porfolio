@@ -50,15 +50,15 @@ export const QDelta: React.FC<QDeltaProps> = ({ onOpenConnect }) => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] bg-red-600/[0.06] rounded-full blur-[160px] pointer-events-none -z-10" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_50%,rgba(255,31,72,0.06),transparent_70%)] pointer-events-none -z-10" />
 
-      <div className="max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="max-w-[1360px] mx-auto px-4 sm:px-8 lg:px-12">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 sm:pb-5 border-b border-white/5">
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-            <h2 className="font-oswald text-lg sm:text-xl md:text-2xl font-bold tracking-wider uppercase inline-flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-6">
+            <h2 className="font-oswald text-base sm:text-xl md:text-2xl font-bold tracking-wider uppercase inline-flex items-center gap-2">
               <span className="text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.25)]">QDELTA</span>
               <span className="text-red-500 drop-shadow-[0_0_14px_rgba(220,20,20,0.85)]">TECHNOLOGIES</span>
             </h2>
-            <div className="relative group overflow-hidden inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-red-500/80 bg-gradient-to-b from-[#240505] via-[#120202] to-[#0a0101] text-[11px] sm:text-xs font-oswald tracking-wider text-[#E4E4E7] shadow-[0_0_22px_rgba(220,20,20,0.35),inset_0_0_12px_rgba(220,20,20,0.2)] backdrop-blur-md">
+            <div className="relative group overflow-hidden inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full border border-red-500/80 bg-gradient-to-b from-[#240505] via-[#120202] to-[#0a0101] text-[10px] sm:text-xs font-oswald tracking-wider text-[#E4E4E7] shadow-[0_0_22px_rgba(220,20,20,0.35),inset_0_0_12px_rgba(220,20,20,0.2)] backdrop-blur-md flex-wrap">
               {/* Top red specular highlight border rim */}
               <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-red-400 to-transparent pointer-events-none z-10" />
 

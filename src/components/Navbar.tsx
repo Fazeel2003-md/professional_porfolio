@@ -92,7 +92,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConnect }) => {
   }, []);
 
   return (
-    <header className="fixed top-3 sm:top-5 inset-x-0 z-50 px-4 sm:px-8 lg:px-12 pointer-events-none transition-all duration-300 animate-nav-enter">
+    <header className="fixed top-2.5 sm:top-5 inset-x-0 z-50 px-3 sm:px-8 lg:px-12 pointer-events-none transition-all duration-300 animate-nav-enter">
       {/* Floating Circular Pill Container with Clean Red Boundary & Dual Moving Sparks */}
       <div className="max-w-[1360px] mx-auto pointer-events-auto">
         <div className="relative rounded-full p-[1px] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.7)] transition-all duration-300 group">
@@ -223,7 +223,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConnect }) => {
               <div className="flex items-center md:hidden">
                 <button
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  className="p-1.5 rounded-full text-zinc-300 hover:text-white hover:bg-white/10 transition-colors cursor-pointer border border-transparent hover:border-red-500/30"
+                  className="p-2 sm:p-1.5 rounded-full text-zinc-300 hover:text-white hover:bg-white/10 transition-colors cursor-pointer border border-transparent hover:border-red-500/30 min-w-[40px] min-h-[40px] flex items-center justify-center"
                   aria-label="Toggle Navigation"
                 >
                   {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -235,7 +235,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConnect }) => {
 
         {/* Mobile Dropdown Menu with Smooth Transition and Crisp Red Boundary */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-2 rounded-3xl border border-red-500/60 bg-[#0A0A0F]/95 backdrop-blur-2xl px-6 py-6 shadow-2xl shadow-red-950/40 pointer-events-auto transition-all duration-300 animate-nav-enter">
+          <div className="md:hidden mt-2 rounded-2xl sm:rounded-3xl border border-red-500/60 bg-[#0A0A0F]/95 backdrop-blur-2xl px-5 py-5 sm:px-6 sm:py-6 shadow-2xl shadow-red-950/40 pointer-events-auto transition-all duration-300 animate-nav-enter max-h-[calc(100vh-85px)] overflow-y-auto">
             <nav className="flex flex-col gap-2 text-base font-medium text-zinc-300">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.href;

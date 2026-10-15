@@ -10,9 +10,9 @@ export const PortraitCard: React.FC<PortraitCardProps> = () => {
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
 
-  // Smooth 3D mouse parallax tilt following the user cursor
+  // Smooth 3D mouse parallax tilt following the user cursor (desktop only)
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
+    if (!cardRef.current || (typeof window !== 'undefined' && window.innerWidth < 768)) return;
     const rect = cardRef.current.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
@@ -23,7 +23,9 @@ export const PortraitCard: React.FC<PortraitCardProps> = () => {
   };
 
   const handleMouseEnter = () => {
-    setIsHovered(true);
+    if (typeof window !== 'undefined' && window.innerWidth >= 768) {
+      setIsHovered(true);
+    }
   };
 
   const handleMouseLeave = () => {
@@ -37,7 +39,7 @@ export const PortraitCard: React.FC<PortraitCardProps> = () => {
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="relative w-full max-w-[420px] sm:max-w-[480px] lg:max-w-[540px] xl:max-w-[600px] mx-auto select-none flex items-center justify-center animate-hero-portrait-levitate cursor-pointer"
+      className="relative w-full max-w-[280px] xs:max-w-[320px] sm:max-w-[440px] lg:max-w-[540px] xl:max-w-[600px] mx-auto select-none flex items-center justify-center animate-hero-portrait-levitate cursor-pointer"
       style={{ perspective: 1200 }}
     >
       {/* Multi-layer volumetric crimson backlight behind the neon frame */}

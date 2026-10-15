@@ -1152,3 +1152,76 @@
   animation: heroPortraitLevitate 5.8s ease-in-out infinite;
   will-change: transform;
 }
+
+/* =========================================================================
+   Mobile Performance & Responsiveness Optimizations (@media max-width: 767px)
+   STRICTLY MOBILE-ONLY: Does NOT affect desktop/laptop viewports.
+   ========================================================================= */
+
+@media (max-width: 767px) {
+  /* Prevent horizontal wobble and scrollbar overflow on mobile devices */
+  html,
+  body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* 1. Skills Section: Remove costly SVG drop-shadow filter on rotating badges to prevent GPU stall */
+  .skill-badge-node {
+    filter: none !important;
+  }
+  .skills-ecosystem-svg {
+    filter: none !important;
+  }
+
+  /* 2. About Section: Replace heavy 4-card continuous float & box-shadow repaints with static crisp glow */
+  .card-float-group-a,
+  .card-float-group-b {
+    animation: none !important;
+    transform: none !important;
+  }
+  .card-ambient-glow-a,
+  .card-ambient-glow-b {
+    animation: none !important;
+    opacity: 0.22 !important;
+    transform: none !important;
+  }
+  .card-surface-glow-a,
+  .card-surface-glow-b {
+    animation: none !important;
+    box-shadow: 0 0 16px rgba(255, 31, 72, 0.22), 0 4px 12px rgba(0, 0, 0, 0.55) !important;
+    border-color: rgba(255, 31, 72, 0.65) !important;
+  }
+
+  /* 3. Services Section: Optimize continuous marquee cards by disabling real-time backdrop blur on mobile */
+  .animate-scroll-rtl,
+  .animate-scroll-ltr {
+    animation-duration: 32s !important;
+    will-change: transform;
+  }
+
+  #services .backdrop-blur-xl,
+  #services .backdrop-blur-2xl,
+  #services .backdrop-blur-md,
+  #qdelta .backdrop-blur-2xl,
+  #qdelta .backdrop-blur-md {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* 4. Conic gradient border spins: keep sharp laser lines without expensive mobile blurs */
+  .animate-spin-border,
+  .animate-spin-spark {
+    filter: none !important;
+  }
+
+  /* 5. Mobile ambient glows: optimize blur radius for low GPU memory overhead */
+  .hero-ambient-pulse,
+  .hero-ambient-shift,
+  .hero-ambient-pulse-slow {
+    filter: blur(48px) !important;
+  }
+}
+

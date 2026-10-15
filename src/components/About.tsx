@@ -34,10 +34,10 @@ export const About: React.FC = () => {
       {/* Subtle ambient glow in background */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-red-600/10 blur-[120px] pointer-events-none -z-10" />
 
-      <div className="max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="max-w-[1360px] mx-auto px-4 sm:px-8 lg:px-12">
 
         {/* Main Content Card */}
-        <div className="relative rounded-2xl sm:rounded-3xl bg-[#0C0C10] border border-white/10 p-6 sm:p-8 md:p-10 lg:p-12 pb-16 sm:pb-20 md:pb-22 lg:pb-24 shadow-2xl shadow-black/60 overflow-hidden">
+        <div className="relative rounded-2xl sm:rounded-3xl bg-[#0C0C10] border border-white/10 p-4 sm:p-8 md:p-10 lg:p-12 pb-8 sm:pb-20 md:pb-22 lg:pb-24 shadow-2xl shadow-black/60 overflow-hidden">
           {/* Subtle top gradient accent */}
           <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-red-600 via-rose-500 to-red-400" />
 

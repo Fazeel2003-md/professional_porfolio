@@ -11,22 +11,22 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
   if (!project) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md overflow-y-auto">
-      <div className="relative w-full max-w-4xl my-8 rounded-3xl bg-[#0F0F16] border border-red-500/30 shadow-2xl shadow-red-950/40 text-white overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-6 bg-black/85 backdrop-blur-md overflow-y-auto">
+      <div className="relative w-full max-w-4xl my-auto rounded-2xl sm:rounded-3xl bg-[#0F0F16] border border-red-500/30 shadow-2xl shadow-red-950/40 text-white overflow-hidden max-h-[92vh] flex flex-col">
         {/* Top Accent Gradient Bar */}
-        <div className="h-1.5 w-full bg-gradient-to-r from-red-600 via-rose-500 to-red-700" />
+        <div className="h-1.5 w-full bg-gradient-to-r from-red-600 via-rose-500 to-red-700 shrink-0" />
 
         {/* Modal Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white transition-colors z-20 cursor-pointer"
+          className="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 p-2 rounded-xl bg-white/10 hover:bg-white/20 text-zinc-300 hover:text-white transition-colors z-20 cursor-pointer min-w-[40px] min-h-[40px] flex items-center justify-center"
           aria-label="Close project modal"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Modal Content Scrollable Area */}
-        <div className="p-6 sm:p-10 space-y-8 max-h-[85vh] overflow-y-auto">
+        <div className="p-4 sm:p-10 space-y-6 sm:space-y-8 overflow-y-auto">
           {/* Header Area */}
           <div>
             <div className="flex items-center gap-2 text-xs font-mono text-red-500 uppercase font-semibold mb-2">

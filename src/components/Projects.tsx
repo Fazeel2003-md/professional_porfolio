@@ -198,8 +198,30 @@ export const Projects: React.FC = () => {
       return;
     }
 
-    // Positions all cards at the initial center stacked deck
+    // Determine if viewport is desktop where the 4x2 grid fits in a single screen view
+    const isDesktop = () => typeof window !== 'undefined' && window.innerWidth >= 1024;
+
+    // Resets cards to their natural CSS grid positions on mobile/tablet
+    const resetToNaturalFlow = () => {
+      cardRefs.current.forEach((cardEl) => {
+        if (cardEl) {
+          cardEl.style.transition = '';
+          cardEl.style.transform = '';
+          cardEl.style.zIndex = '';
+          cardEl.style.boxShadow = '';
+        }
+      });
+      if (centerGlowRef.current) {
+        centerGlowRef.current.style.opacity = '0';
+      }
+    };
+
+    // Positions all cards at the initial center stacked deck (Desktop only)
     const applyInitialStack = () => {
+      if (!isDesktop()) {
+        resetToNaturalFlow();
+        return;
+      }
       if (!gridRef.current) return;
       const gridEl = gridRef.current;
       const gridCenterX = gridEl.offsetWidth / 2;
@@ -227,8 +249,12 @@ export const Projects: React.FC = () => {
       }
     };
 
-    // Triggers the automatic smooth expansion from center deck into the 4x2 grid
+    // Triggers the automatic smooth expansion from center deck into the 4x2 grid (Desktop only)
     const triggerExpansion = () => {
+      if (!isDesktop()) {
+        resetToNaturalFlow();
+        return;
+      }
       if (!gridRef.current) return;
       const gridEl = gridRef.current;
       const gridCenterX = gridEl.offsetWidth / 2;
@@ -285,12 +311,21 @@ export const Projects: React.FC = () => {
       }, 1600);
     };
 
-    // Initial state: set the center stack immediately
-    applyInitialStack();
+    // Initial state: set the center stack on desktop, or natural flow on mobile
+    if (isDesktop()) {
+      applyInitialStack();
+    } else {
+      resetToNaturalFlow();
+    }
 
-    // IntersectionObserver: triggers presentation expansion in BOTH forward and reverse scroll directions
+    // IntersectionObserver: triggers presentation expansion on desktop in BOTH forward and reverse scroll directions
     const observer = new IntersectionObserver(
       ([entry]) => {
+        if (!isDesktop()) {
+          resetToNaturalFlow();
+          return;
+        }
+
         if (entry.isIntersecting) {
           if (!hasAnimatedRef.current) {
             hasAnimatedRef.current = true;
@@ -301,8 +336,7 @@ export const Projects: React.FC = () => {
             }, 220);
           }
         } else {
-          // When out of view in EITHER direction (scrolled past downward OR upward in reverse),
-          // reset stack and animation flag so it re-animates cleanly upon return!
+          // When out of view in EITHER direction on desktop, reset stack so it re-animates upon return!
           if (expandTimerRef.current) clearTimeout(expandTimerRef.current);
           if (cleanupTimerRef.current) clearTimeout(cleanupTimerRef.current);
           hasAnimatedRef.current = false;
@@ -318,7 +352,9 @@ export const Projects: React.FC = () => {
     }
 
     const handleResize = () => {
-      if (!hasAnimatedRef.current) {
+      if (!isDesktop()) {
+        resetToNaturalFlow();
+      } else if (!hasAnimatedRef.current) {
         applyInitialStack();
       }
     };

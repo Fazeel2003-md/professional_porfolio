@@ -487,7 +487,7 @@ export const Contact: React.FC<ContactProps> = ({ isOpenModal, onCloseModal }) =
       {/* Modern fine grid pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_70%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
 
-      <div className="max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12 relative">
+      <div className="max-w-[1360px] mx-auto px-4 sm:px-8 lg:px-12 relative">
         {/* Background Subtle Watermark */}
         <div className="absolute -top-8 sm:-top-14 right-4 sm:right-12 lg:right-16 text-[100px] sm:text-[150px] lg:text-[190px] font-bold text-white/[0.025] select-none pointer-events-none leading-none tracking-tighter font-display uppercase">
           CONNECT
@@ -554,14 +554,14 @@ export const Contact: React.FC<ContactProps> = ({ isOpenModal, onCloseModal }) =
             </div>
 
             {/* Big Headline: Say hello ↗ */}
-            <h2 className="text-4xl sm:text-5xl lg:text-[54px] font-bold tracking-tight flex items-center gap-2.5 leading-tight group cursor-default select-none">
+            <h2 className="text-3xl xs:text-4xl sm:text-5xl lg:text-[54px] font-bold tracking-tight flex items-center gap-2 sm:gap-2.5 leading-tight group cursor-default select-none">
               <span className="text-white">Say </span>
               <span className="text-red-500 drop-shadow-[0_0_18px_rgba(220,20,20,0.85)] group-hover:drop-shadow-[0_0_26px_rgba(220,20,20,1)] transition-all">hello</span>
-              <ArrowUpRight className="w-8 h-8 sm:w-10 sm:h-10 text-red-500 group-hover:text-white group-hover:translate-x-2 group-hover:-translate-y-2 transition-all duration-300 stroke-[2.5] drop-shadow-[0_0_12px_rgba(220,20,20,0.7)] group-hover:drop-shadow-[0_0_18px_rgba(255,255,255,0.9)]" />
+              <ArrowUpRight className="w-6 h-6 sm:w-10 sm:h-10 text-red-500 group-hover:text-white group-hover:translate-x-2 group-hover:-translate-y-2 transition-all duration-300 stroke-[2.5] drop-shadow-[0_0_12px_rgba(220,20,20,0.7)] group-hover:drop-shadow-[0_0_18px_rgba(255,255,255,0.9)]" />
             </h2>
 
             {/* Description */}
-            <p className="text-zinc-300 text-sm sm:text-base leading-relaxed max-w-lg font-light">
+            <p className="text-zinc-300 text-xs sm:text-base leading-relaxed max-w-lg font-light">
               Got a project in mind, or just want to sanity-check an idea before you commit? Send it over. We read everything that comes through this form.
             </p>
 
@@ -579,7 +579,7 @@ export const Contact: React.FC<ContactProps> = ({ isOpenModal, onCloseModal }) =
                   <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full border border-red-500/60 bg-[#160205] flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(220,20,20,0.3)] group-hover:border-white group-hover:bg-red-600 group-hover:shadow-[0_0_16px_rgba(239,68,68,0.9)] group-hover:scale-110 transition-all duration-300">
                     <Check className="w-3 h-3 text-white stroke-[2.5]" />
                   </div>
-                  <span className="text-sm sm:text-[15px] text-zinc-300 group-hover:text-white transition-colors duration-200">
+                  <span className="text-xs sm:text-[15px] text-zinc-300 group-hover:text-white transition-colors duration-200">
                     {item}
                   </span>
                 </div>
@@ -591,7 +591,7 @@ export const Contact: React.FC<ContactProps> = ({ isOpenModal, onCloseModal }) =
           </div>
 
           {/* Right Column: Send a Direct Inquiry Form */}
-          <div className="relative group lg:col-span-7 xl:col-span-7 p-6 sm:p-8 rounded-3xl bg-gradient-to-b from-[#180306] via-[#0d0102] to-[#060002] border-2 border-red-600/80 hover:border-red-500 space-y-6 shadow-[0_0_40px_rgba(220,20,20,0.28),inset_0_0_25px_rgba(180,10,10,0.12)] transition-all duration-500 overflow-hidden">
+          <div className="relative group lg:col-span-7 xl:col-span-7 p-4 sm:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-b from-[#180306] via-[#0d0102] to-[#060002] border-2 border-red-600/80 hover:border-red-500 space-y-5 sm:space-y-6 shadow-[0_0_40px_rgba(220,20,20,0.28),inset_0_0_25px_rgba(180,10,10,0.12)] transition-all duration-500 overflow-hidden">
             {/* Top red specular highlight border rim */}
             <div className="absolute top-0 inset-x-0 h-[2.5px] bg-gradient-to-r from-transparent via-red-500 via-white to-transparent pointer-events-none z-10" />
 

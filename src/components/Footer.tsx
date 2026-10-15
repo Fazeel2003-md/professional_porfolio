@@ -10,8 +10,8 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="border-t border-white/5 bg-[#060608] py-12 sm:py-14 text-xs text-zinc-500 font-mono">
-      <div className="max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
+    <footer className="border-t border-white/5 bg-[#060608] py-10 sm:py-14 text-xs text-zinc-500 font-mono">
+      <div className="max-w-[1360px] mx-auto px-4 sm:px-8 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Brand & Copyright */}
         <div className="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
           <span className="font-orbitron font-black text-sm tracking-[0.14em] uppercase flex items-center select-none">
@@ -26,7 +26,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Quick Links & Back to Top */}
-        <div className="flex items-center gap-6">
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
           <a
             href={personal.github}
             target="_blank"
