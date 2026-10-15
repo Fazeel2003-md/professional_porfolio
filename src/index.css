@@ -1323,4 +1323,137 @@
   will-change: transform, opacity;
 }
 
+/* =========================================================================
+   Mobile-Only Professional Animations for Featured Project Cards
+   (Hardware-accelerated, compositor-driven, strictly active on mobile viewports)
+   ========================================================================= */
+
+@keyframes mobile-project-laser {
+  0% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(340%);
+    opacity: 0;
+  }
+}
+
+@keyframes mobile-project-specular {
+  0% {
+    transform: translateX(-140%) skewX(-20deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  50% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateX(260%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+@keyframes mobile-project-sheen-sweep {
+  0% {
+    transform: translateX(-150%) skewX(-25deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(250%) skewX(-25deg);
+    opacity: 0;
+  }
+}
+
+@keyframes mobile-project-beacon {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.45);
+    opacity: 0.75;
+  }
+}
+
+.mobile-project-laser-spark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 31, 72, 0.4) 20%,
+    #ffffff 50%,
+    rgba(255, 31, 72, 0.9) 75%,
+    transparent 100%
+  );
+  box-shadow: 0 0 10px #FF1F48, 0 0 4px #ffffff;
+  animation: mobile-project-laser 4.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: transform, opacity;
+}
+
+.mobile-project-specular-sweep {
+  position: absolute;
+  inset: -60%;
+  width: 220%;
+  height: 220%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 42%,
+    rgba(255, 31, 72, 0.04) 46%,
+    rgba(255, 255, 255, 0.09) 50%,
+    rgba(255, 31, 72, 0.04) 54%,
+    transparent 58%,
+    transparent 100%
+  );
+  animation: mobile-project-specular 4.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.mobile-project-image-sheen {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 35%,
+    rgba(255, 255, 255, 0.05) 45%,
+    rgba(255, 255, 255, 0.24) 50%,
+    rgba(255, 255, 255, 0.05) 55%,
+    transparent 65%,
+    transparent 100%
+  );
+  animation: mobile-project-sheen-sweep 4.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: transform, opacity;
+}
+
+.mobile-project-beacon-ring {
+  animation: mobile-project-beacon 2.8s ease-out infinite;
+  will-change: transform, opacity;
+}
+
+
 

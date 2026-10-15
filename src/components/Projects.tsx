@@ -425,8 +425,25 @@ export const Projects: React.FC = () => {
                   }}
                   onClick={() => handleCardClick(item)}
                   style={{ willChange: 'transform' }}
-                  className="group relative rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#200404] via-[#100202] to-[#070101] border-2 border-red-600 hover:border-red-500 p-3 sm:p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 shadow-[0_0_24px_rgba(220,20,20,0.3),inset_0_0_18px_rgba(200,15,15,0.12)] hover:shadow-[0_0_38px_rgba(220,20,20,0.5),inset_0_0_24px_rgba(200,15,15,0.22)] h-full overflow-hidden"
+                  className="group relative rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#200404] via-[#100202] to-[#070101] border-2 border-red-600 hover:border-red-500 p-3 sm:p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 shadow-[0_0_24px_rgba(220,20,20,0.3),inset_0_0_18px_rgba(200,15,15,0.12)] hover:shadow-[0_0_38px_rgba(220,20,20,0.5),inset_0_0_24px_rgba(200,15,15,0.22)] h-full overflow-hidden active:scale-[0.98]"
                 >
+                  {/* Mobile-Exclusive Professional Animation Elements (Hidden on sm: and up) */}
+                  <div className="block sm:hidden pointer-events-none" aria-hidden="true">
+                    {/* Top Border Traveling Laser Photon Spark */}
+                    <div className="absolute top-0 inset-x-0 h-[2px] overflow-hidden rounded-t-xl z-20 pointer-events-none">
+                      <div
+                        className="mobile-project-laser-spark"
+                        style={{ animationDelay: `${(idx % 4) * 1.1}s` }}
+                      />
+                    </div>
+
+                    {/* Diagonal Specular Sheen Sweep across Card Surface */}
+                    <div
+                      className="mobile-project-specular-sweep"
+                      style={{ animationDelay: `${(idx % 4) * 1.1}s` }}
+                    />
+                  </div>
+
                   {/* Top specular highlight rim */}
                   <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-red-500 via-red-600 to-transparent pointer-events-none z-10" />
 
@@ -452,6 +469,12 @@ export const Projects: React.FC = () => {
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
                       />
+                      {/* Mobile Image Light Sheen */}
+                      <div
+                        className="block sm:hidden absolute inset-0 pointer-events-none mobile-project-image-sheen"
+                        style={{ animationDelay: `${(idx % 4) * 1.1 + 0.2}s` }}
+                        aria-hidden="true"
+                      />
                       {/* Subtle hover overlay badge */}
                       <div className="absolute top-2 right-2 p-1 rounded-md bg-black/60 backdrop-blur-md border border-white/10 text-zinc-300 opacity-0 group-hover:opacity-100 transition-opacity">
                         <ArrowUpRight className="w-3 h-3 text-white" />
@@ -460,8 +483,16 @@ export const Projects: React.FC = () => {
 
                     {/* Header Row: Circular Red Icon Badge + Title */}
                     <div className="flex items-center gap-2 sm:gap-2.5">
-                      <div className="w-6 h-6 sm:w-6.5 sm:h-6.5 rounded-full bg-[#E5093A] text-white flex items-center justify-center shrink-0 shadow-md shadow-red-950/60">
-                        <IconComponent className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" />
+                      <div className="relative shrink-0 flex items-center justify-center">
+                        <div className="w-6 h-6 sm:w-6.5 sm:h-6.5 rounded-full bg-[#E5093A] text-white flex items-center justify-center shrink-0 shadow-md shadow-red-950/60 relative z-10">
+                          <IconComponent className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" />
+                        </div>
+                        {/* Mobile Glowing Beacon Ring */}
+                        <div
+                          className="block sm:hidden absolute inset-0 rounded-full bg-red-500/50 mobile-project-beacon-ring pointer-events-none"
+                          style={{ animationDelay: `${(idx % 4) * 1.1}s` }}
+                          aria-hidden="true"
+                        />
                       </div>
                       <h3 className="font-bold text-white text-xs sm:text-[13.5px] lg:text-[14px] tracking-tight leading-snug group-hover:text-red-300 transition-colors line-clamp-1">
                         {item.title}
