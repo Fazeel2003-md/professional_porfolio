@@ -66,16 +66,34 @@ export const About: React.FC = () => {
                 >
                   {/* Subtle Red Ambient Glow Backdrop behind and slightly around the active card */}
                   <div
-                    className={`card-ambient-aura ${isGroupA ? 'card-ambient-glow-a' : 'card-ambient-glow-b'}`}
+                    className={`card-ambient-aura ${isGroupA ? 'card-ambient-glow-a' : 'card-ambient-glow-b'} mobile-card-glow-pulse`}
+                    style={{ animationDelay: `${idx * 1.2}s` }}
                     aria-hidden="true"
                   />
 
                   {/* Card Body */}
                   <div
-                    className={`group relative p-6 sm:p-7 pb-7 sm:pb-8 min-h-[250px] sm:min-h-[270px] rounded-2xl bg-gradient-to-b from-[#14060a] via-[#0a070c] to-[#070508] border border-red-500/80 transition-all duration-300 flex flex-col justify-between h-full overflow-hidden ${
+                    className={`group relative p-6 sm:p-7 pb-7 sm:pb-8 min-h-[250px] sm:min-h-[270px] rounded-2xl bg-gradient-to-b from-[#14060a] via-[#0a070c] to-[#070508] border border-red-500/80 transition-all duration-300 flex flex-col justify-between h-full overflow-hidden active:scale-[0.98] ${
                       isGroupA ? 'card-surface-glow-a' : 'card-surface-glow-b'
                     }`}
                   >
+                    {/* Mobile-Exclusive Professional Laser Sweep & Metallic Specular Sheen (hidden on sm: and up) */}
+                    <div className="block sm:hidden pointer-events-none" aria-hidden="true">
+                      {/* Top Border Laser Beam Sweep */}
+                      <div className="absolute top-0 inset-x-0 h-[2px] overflow-hidden rounded-t-2xl z-20 pointer-events-none">
+                        <div
+                          className="mobile-card-laser-beam"
+                          style={{ animationDelay: `${idx * 1.2}s` }}
+                        />
+                      </div>
+
+                      {/* Diagonal Metallic Specular Sweep */}
+                      <div
+                        className="mobile-card-specular-sweep"
+                        style={{ animationDelay: `${idx * 1.2}s` }}
+                      />
+                    </div>
+
                     {/* Lite background shining layers */}
                     <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-48 h-32 bg-red-500/20 rounded-full blur-2xl pointer-events-none group-hover:bg-red-500/35 transition-all duration-500" />
                     <div className="absolute top-0 right-0 w-28 h-28 bg-[radial-gradient(circle_at_top_right,rgba(255,31,72,0.25),transparent_70%)] pointer-events-none" />
